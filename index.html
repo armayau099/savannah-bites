@@ -1,0 +1,555 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Savanna Bites - Delicious Nigerian meals, freshly prepared. Order directly on WhatsApp.">
+<meta name="theme-color" content="#17251c">
+<title>Savanna Bites | Fresh Nigerian Food</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #faf8f3;
+  color: #252d25;
+  line-height: 1.6;
+}
+
+header {
+  background: #17251c;
+  color: white;
+  padding: 17px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: #e7b85c;
+}
+
+.logo span {
+  color: white;
+}
+
+nav {
+  display: flex;
+  gap: 17px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+nav a:hover {
+  color: #e7b85c;
+}
+
+.hero {
+  min-height: 440px;
+  padding: 75px 7%;
+  background: linear-gradient(120deg, #17251c, #344b32);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero small {
+  color: #e7b85c;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 8vw, 58px);
+  line-height: 1.15;
+  max-width: 650px;
+  margin: 17px 0;
+}
+
+.hero p {
+  color: #e3e8dd;
+  max-width: 500px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background: #e7b85c;
+  color: #17251c;
+  padding: 13px 22px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #f5ce7d;
+}
+
+section {
+  padding: 60px 6%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 29px;
+  color: #263c29;
+}
+
+.section-title p {
+  color: #777;
+  font-size: 14px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+  max-width: 950px;
+  margin: auto;
+}
+
+.food-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #eee9df;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+
+.food-image {
+  height: 150px;
+  overflow: hidden;
+  background: #eee9dc;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.food-info {
+  padding: 14px;
+}
+
+.food-info h3 {
+  font-size: 16px;
+}
+
+.food-info p {
+  font-size: 12px;
+  color: #777;
+  margin: 5px 0 12px;
+}
+
+.food-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.price {
+  color: #337143;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.order-btn {
+  background: #237c45;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.about {
+  background: #edf0e8;
+  text-align: center;
+}
+
+.about p {
+  max-width: 650px;
+  margin: 15px auto;
+  color: #596256;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 900px;
+  margin: 30px auto 0;
+}
+
+.info-card {
+  background: white;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.info-card strong {
+  display: block;
+  color: #2d653a;
+  margin-bottom: 7px;
+}
+
+.info-card p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.contact .btn {
+  margin-top: 15px;
+}
+
+footer {
+  background: #17251c;
+  color: white;
+  text-align: center;
+  padding: 23px 10px;
+  font-size: 13px;
+}
+
+footer span {
+  color: #e7b85c;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 18px;
+  right: 15px;
+  background: #20bd5a;
+  color: white;
+  text-decoration: none;
+  padding: 13px 17px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 3px 12px #0003;
+  z-index: 10;
+}
+
+@media (max-width: 550px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 13px;
+  }
+
+  .hero {
+    min-height: 390px;
+    padding: 55px 7%;
+  }
+
+  .menu-grid {
+    gap: 10px;
+  }
+
+  .food-image {
+    height: 105px;
+    font-size: 48px;
+  }
+
+  .food-info {
+    padding: 10px;
+  }
+
+  .food-info h3 {
+    font-size: 14px;
+  }
+
+  .food-bottom {
+    flex-wrap: wrap;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">SAVANNA <span>BITES</span></div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <small>WELCOME TO SAVANNA BITES</small>
+
+  <h1>Delicious Food.<br>Made With Love.</h1>
+
+  <p>
+    Enjoy delicious Nigerian meals, freshly prepared
+    with quality ingredients and served with love.
+  </p>
+
+  <a href="#menu" class="btn">Explore Our Menu</a>
+</section>
+
+<section id="menu">
+
+  <div class="section-title">
+    <h2>Our Popular Menu</h2>
+    <p>Fresh meals made for you every day.</p>
+  </div>
+
+  <div class="menu-grid">
+
+    <div class="food-card">
+      <div class="food-image">
+  <img src="jollof.jpg" alt="Jollof Rice">
+</div>
+      <div class="food-info">
+        <h3>Jollof Rice</h3>
+        <p>Delicious Nigerian party-style jollof rice.</p>
+        <div class="food-bottom">
+          <span class="price">₦3,000</span>
+          <a href="#" class="order-btn"
+             onclick="orderFood('Jollof Rice');return false;">
+             Order
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-image">
+  <img src="chicken.jpg" alt="Grilled Chicken">
+</div>
+      <div class="food-info">
+        <h3>Grilled Chicken</h3>
+        <p>Freshly grilled and perfectly seasoned.</p>
+        <div class="food-bottom">
+          <span class="price">₦4,500</span>
+          <a href="#" class="order-btn"
+             onclick="orderFood('Grilled Chicken');return false;">
+             Order
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-image">
+  <img src="fried-rice.jpg" alt="Fried Rice">
+</div>
+      <div class="food-info">
+        <h3>Fried Rice</h3>
+        <p>Rich fried rice with fresh vegetables.</p>
+        <div class="food-bottom">
+          <span class="price">₦3,500</span>
+          <a href="#" class="order-btn"
+             onclick="orderFood('Fried Rice');return false;">
+             Order
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-image">
+  <img src="egusi-soup.jpg" alt="Fried Rice">
+</div>
+      <div class="food-info">
+        <h3>Egusi Soup</h3>
+        <p>Traditional soup served with swallow.</p>
+        <div class="food-bottom">
+          <span class="price">₦4,000</span>
+          <a href="#" class="order-btn"
+             onclick="orderFood('Egusi Soup');return false;">
+             Order
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-image">
+  <img src="beef-burger.jpg" alt="Fried Rice">
+</div>
+      <div class="food-info">
+        <h3>Beef Burger</h3>
+        <p>Tasty burger with fresh vegetables.</p>
+        <div class="food-bottom">
+          <span class="price">₦3,500</span>
+          <a href="#" class="order-btn"
+             onclick="orderFood('Beef Burger');return false;">
+             Order
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-image">
+  <img src="drinks.jpg" alt="Fried Rice">
+</div>
+      <div class="food-info">
+        <h3>Fresh Drinks</h3>
+        <p>Refreshing drinks to complete your meal.</p>
+        <div class="food-bottom">
+          <span class="price">₦1,500</span>
+          <a href="#" class="order-btn"
+             onclick="orderFood('Fresh Drinks');return false;">
+             Order
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="about" id="about">
+
+  <div class="section-title">
+    <h2>About Savanna Bites</h2>
+  </div>
+
+  <p>
+    At Savanna Bites, we believe great food brings
+    people together. Our goal is to serve tasty,
+    freshly prepared meals with excellent customer
+    service. Come hungry and leave happy!
+  </p>
+
+</section>
+
+<section id="contact" class="contact">
+
+  <div class="section-title">
+    <h2>Visit or Contact Us</h2>
+    <p>We would love to serve you.</p>
+  </div>
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <strong>📍 Location</strong>
+      <p>Jos, Plateau State, Nigeria</p>
+    </div>
+
+    <div class="info-card">
+      <strong>🕒 Opening Hours</strong>
+      <p>Monday - Saturday<br>9 AM - 9 PM</p>
+    </div>
+
+    <div class="info-card">
+      <strong>📞 Contact</strong>
+      <p>Order directly through WhatsApp.</p>
+    </div>
+
+  </div>
+
+  <a href="#" class="btn"
+     onclick="orderGeneral();return false;">
+     Chat With Us on WhatsApp
+  </a>
+
+</section>
+
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Savanna Bites. All rights reserved.</p>
+  <p>Website designed by <span>AFRINOVA TECHNOLOGIES</span></p>
+</footer>
+
+<a href="#" class="whatsapp-float"
+   onclick="orderGeneral();return false;">
+   WhatsApp Order
+</a>
+
+<script>
+
+// CHANGE THIS TO THE RESTAURANT'S REAL NUMBER.
+// Use country code 234 without the first zero.
+const WHATSAPP_NUMBER = "2348000000000";
+
+function sendWhatsApp(message) {
+  if (WHATSAPP_NUMBER === "2348000000000") {
+    alert("Please add the restaurant's real WhatsApp number in the code first.");
+    return;
+  }
+
+  const url =
+    "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
+function orderFood(food) {
+  sendWhatsApp(
+    "Hello Savanna Bites! I would like to order " +
+    food + ". Please provide more details."
+  );
+}
+
+function orderGeneral() {
+  sendWhatsApp(
+    "Hello Savanna Bites! I would like to make an enquiry."
+  );
+}
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
